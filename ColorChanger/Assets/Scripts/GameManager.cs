@@ -8,7 +8,49 @@ public class GameManager : MonoBehaviour
 {
     [SerializeField]
     Text textR, textG, textB;
-    float r, g, b;
+    float R, G, B;
+    float r
+    {
+        set
+        {
+            if (value > 255) R = 255;
+            else if (value < 0) R = 0;
+            else R = value;
+        }
+
+        get 
+        {
+            return R;
+        }
+    }
+    float g
+    {
+        set
+        {
+            if (value > 255) G = 255;
+            else if (value < 0) G = 0;
+            else G = value;
+        }
+
+        get
+        {
+            return G;
+        }
+    }
+    float b
+    {
+        set
+        {
+            if (value > 255) B = 255;
+            else if (value < 0) B = 0;
+            else B = value;
+        }
+
+        get
+        {
+            return B;
+        }
+    }
 
     [SerializeField]
     Slider slider;
