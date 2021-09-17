@@ -1015,7 +1015,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0.5}
   m_AnchorMax: {x: 1, y: 0.5}
-  m_AnchoredPosition: {x: -0.000030517578, y: 38.6}
+  m_AnchoredPosition: {x: 0, y: 38.6}
   m_SizeDelta: {x: -880, y: 95.71}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &931908080
@@ -1188,7 +1188,7 @@ MonoBehaviour:
   mat3D: {fileID: 0}
   currentColor: {r: 0, g: 0, b: 0, a: 0}
   _raycaster: {fileID: 1923411996}
-  gameManager: {fileID: 1857177606}
+  _gameManager: {fileID: 1857177606}
 --- !u!1 &1096195615
 GameObject:
   m_ObjectHideFlags: 0
@@ -2095,11 +2095,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c53dc7bd1d89f044f9f9b5913e36ee9f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  textR: {fileID: 328170855}
-  textG: {fileID: 2101271713}
-  textB: {fileID: 1412570194}
-  slider: {fileID: 925841439}
-  player: {fileID: 963194229}
+  _textR: {fileID: 328170855}
+  _textG: {fileID: 2101271713}
+  _textB: {fileID: 1412570194}
+  _slider: {fileID: 925841439}
+  _player: {fileID: 963194229}
 --- !u!1 &1923411991
 GameObject:
   m_ObjectHideFlags: 0

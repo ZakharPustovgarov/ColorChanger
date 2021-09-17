@@ -2,13 +2,13 @@ using UnityEngine;
 
 public class RandomColor3D : RandomColor
 {
-    Material material;
+    Material _material;
 
     protected override void Start()
     {
         base.Start();
 
-        material = GetComponent<MeshRenderer>().material;
-        material.color = color;
+        _material = GetComponent<MeshRenderer>().material;
+        _material.color = _color;
     }
 }

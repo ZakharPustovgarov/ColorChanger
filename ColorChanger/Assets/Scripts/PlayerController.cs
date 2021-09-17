@@ -20,7 +20,7 @@ public class PlayerController : MonoBehaviour
     [SerializeField]
     GraphicRaycasterResults _raycaster;
     [SerializeField]
-    GameManager gameManager;
+    GameManager _gameManager;
 
     // Start is called before the first frame update
     void Start()
@@ -87,6 +87,6 @@ public class PlayerController : MonoBehaviour
 
     void SetChangableObject()
     {
-        if (image2D != null || mat3D != null) gameManager.SetInitialColor(currentColor);
+        if (image2D != null || mat3D != null) _gameManager.SetInitialColor(currentColor);
     }
 }

@@ -3,13 +3,13 @@ using UnityEngine.UI;
 
 public class RandomColor2D : RandomColor
 {
-    Image image;
+    Image _image;
     
     protected override void Start()
     {
         base.Start();
 
-        image = GetComponent<Image>();
-        image.color = color;
+        _image = GetComponent<Image>();
+        _image.color = _color;
     }
 }

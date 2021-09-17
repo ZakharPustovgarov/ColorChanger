@@ -7,110 +7,110 @@ using UnityEngine.UI;
 public class GameManager : MonoBehaviour
 {
     [SerializeField]
-    Text textR, textG, textB;
-    float R, G, B;
-    float r
+    Text _textR, _textG, _textB;
+    float _R, _G, _B;
+    float _r
     {
         set
         {
-            if (value > 255) R = 255;
-            else if (value < 0) R = 0;
-            else R = value;
+            if (value > 255) _R = 255;
+            else if (value < 0) _R = 0;
+            else _R = value;
         }
 
         get 
         {
-            return R;
+            return _R;
         }
     }
-    float g
+    float _g
     {
         set
         {
-            if (value > 255) G = 255;
-            else if (value < 0) G = 0;
-            else G = value;
+            if (value > 255) _G = 255;
+            else if (value < 0) _G = 0;
+            else _G = value;
         }
 
         get
         {
-            return G;
+            return _G;
         }
     }
-    float b
+    float _b
     {
         set
         {
-            if (value > 255) B = 255;
-            else if (value < 0) B = 0;
-            else B = value;
+            if (value > 255) _B = 255;
+            else if (value < 0) _B = 0;
+            else _B = value;
         }
 
         get
         {
-            return B;
+            return _B;
         }
     }
 
     [SerializeField]
-    Slider slider;
+    Slider _slider;
 
     [SerializeField]
-    PlayerController player;
+    PlayerController _player;
 
-    bool isCoroutineRunning;
+    bool _isCoroutineRunning;
 
     void Start()
     {
-        isCoroutineRunning = false;
+        _isCoroutineRunning = false;
     }
 
     void UpdateUI(bool isNewValues  = false)
     {
-        textR.text = Convert.ToString(r);
-        textG.text = Convert.ToString(g);
-        textB.text = Convert.ToString(b);
-        if (isNewValues == true) slider.value = g;
+        _textR.text = Convert.ToString(_r);
+        _textG.text = Convert.ToString(_g);
+        _textB.text = Convert.ToString(_b);
+        if (isNewValues == true) _slider.value = _g;
     }
 
     public void SetInitialColor(Color color)
     {
-        r = Convert.ToInt32(255 * color.r);
-        g = Convert.ToInt32(255 * color.g);
-        b = Convert.ToInt32(255 * color.b);
+        _r = Convert.ToInt32(255 * color.r);
+        _g = Convert.ToInt32(255 * color.g);
+        _b = Convert.ToInt32(255 * color.b);
         UpdateUI(true);
     }
 
     void SetNewColor()
     {
-        if (player.is2D == false && player.mat3D != null) player.mat3D.color = new Color(r / 255, g / 255, b / 255, 1f);
-        else player.image2D.color = new Color(r / 255, g / 255, b / 255, 1f);
+        if (_player.is2D == false && _player.mat3D != null) _player.mat3D.color = new Color(_r / 255, _g / 255, _b / 255, 1f);
+        else _player.image2D.color = new Color(_r / 255, _g / 255, _b / 255, 1f);
     }
 
     public void IncrementR()
     {
-        r++;
+        _r++;
         UpdateUI();
         SetNewColor();
     }
 
     public void DecrementR()
     {
-        r--;
+        _r--;
         UpdateUI();
         SetNewColor();
     }
 
     public void GetSliderValueG()
     {
-        g = slider.value;
+        _g = _slider.value;
         UpdateUI();
         SetNewColor();
     }
 
     public void SetRandomB()
     {
-        b = Convert.ToInt32(UnityEngine.Random.Range(0f, 255f));
+        _b = Convert.ToInt32(UnityEngine.Random.Range(0f, 255f));
         UpdateUI();
         SetNewColor();
     }
@@ -122,7 +122,7 @@ public class GameManager : MonoBehaviour
         float interval = 0.2f;
         int iterations = 0;
 
-        while(isCoroutineRunning == true)
+        while(_isCoroutineRunning == true)
         {
             if (iterations > 50) interval = 0.07f;
             else if (iterations > 30) interval = 0.1f;
@@ -140,12 +140,12 @@ public class GameManager : MonoBehaviour
 
     public void StartChangingR(bool isIncrement)
     {
-        isCoroutineRunning = true;
+        _isCoroutineRunning = true;
         StartCoroutine(HoldR(isIncrement));
     }
 
     public void StopChangingR()
     {
-        isCoroutineRunning = false;           
+        _isCoroutineRunning = false;           
     }
 }
